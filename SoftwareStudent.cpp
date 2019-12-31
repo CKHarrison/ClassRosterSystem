@@ -1,21 +1,17 @@
 #include <iostream>
 #include "SoftwareStudent.h"
 
-//empty softwareStudent constructor with the initialization of the base Student constructor
+//Empty constructor creates security student initializes base student class
 SoftwareStudent::SoftwareStudent() : Student() {
-	//setting the degree type enum;
 	degree_type = SOFTWARE;
 }
 
-//full constructor
-SoftwareStudent::SoftwareStudent(std::string studentID, std::string first_name, std::string last_name,
-	std::string email_address, int age, int number_of_days[], Degree degree)
-	:Student(studentID, first_name, last_name, email_address, age, number_of_days) { //initialization of Student base class
-
+SoftwareStudent::SoftwareStudent(std::string studentID, std::string first_name, std::string last_name, std::string email_address,
+	int age, int number_of_days[], Degree degree)
+	: Student(studentID, first_name, last_name, email_address, age, number_of_days) {
 	degree_type = SOFTWARE;
 }
 
-//Overriding base class virtual functions
 Degree SoftwareStudent::get_degree_type() {
 	return SOFTWARE;
 }

@@ -1,4 +1,3 @@
-#include "Student.h"
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -12,7 +11,7 @@ Student::Student() { //empty constructor
 	this->email_address = "";
 	this->age = 0;
 	//setting the number of days to complete array to 0
-	for (size_t i{ 0 }; i < number_of_days_size; ++i) {
+	for (size_t i{ 0 }; i < number_of_days_size; i++) {
 		this->number_of_days[i] = 0;
 	}
 }
@@ -85,7 +84,7 @@ void Student::set_number_of_days(int number_of_days[]) {
 }
 
 void Student::print() {
-	std::cout << std::left << std::setw(5) << studentID;
+	std::cout << std::left  << studentID;
 	std::cout << std::left << "\t" << first_name;
 	std::cout << std::left << "\t" << last_name;
 	std::cout << std::left << "\t" << email_address;

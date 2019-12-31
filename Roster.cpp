@@ -21,7 +21,9 @@ void Roster::convert_and_add_data(std::string row) {
 		last_element_position++;
 
 		Degree degree_choice;
-		if (row.find("SOFTWARE")) {
+		if (row.find_first_of("SOFTWARE")) {
+			
+			
 			degree_choice = SOFTWARE;
 		}
 		else if(row.find("SECURITY")){
@@ -103,7 +105,7 @@ void Roster::add(std::string student_id, std::string first_name, std::string las
 
 void Roster::printAll() {
 	for (int i = 0; i <= this->last_element_position; i++) {
-		(this->classRosterArray[i])->print();
+		(this->classRosterArray)[i]->print();
 	}
 }
 
