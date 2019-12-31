@@ -91,7 +91,7 @@ void Student::print() {
 	std::cout << std::left << "\t" << age;
 	std::cout << std::left << "\t" << "{" << number_of_days[0];
 	std::cout << std::left << "\t" << number_of_days[1];
-	std::cout << std::left << "\t" << number_of_days[2] << "}\t";
+	std::cout << std::left << "\t" << number_of_days[2] << "} ";
 }
 
 Student::~Student() {
