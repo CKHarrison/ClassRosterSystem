@@ -18,25 +18,7 @@ void Roster::convert_and_add_data(std::string row) {
 	if (last_element_position < size_of_array) {
 		last_element_position++;
 
-		Degree degree_choice;
-		if (row.find("SOFTWARE") ) {
-			
-			
-			degree_choice = SOFTWARE;
-			
-		}
-		else if(row.find("SECURITY")){
-			degree_choice = SECURITY;
-			
-		}
-		else if (row.find("NETWORK")) {
-			degree_choice = NETWORKING;
-			
-		}
-		else {
-			std::cout << "Invalid Degree" << std::endl;
-			exit(-1);
-		}
+	
 
 		//assign student id
 		int right_hand_side = row.find(",");
@@ -77,6 +59,23 @@ void Roster::convert_and_add_data(std::string row) {
 		right_hand_side = row.find(",", left_hand_side);
 		int day3 = stoi(row.substr(left_hand_side, right_hand_side - left_hand_side));
 
+		//degree
+		left_hand_side = right_hand_side + 1;
+		right_hand_side = row.find(",", left_hand_side);
+		std::string degree = row.substr(left_hand_side, right_hand_side - left_hand_side);
+
+		Degree degree_choice;
+		if (degree == "SECURITY") {
+			degree_choice = SECURITY;
+		}
+		else if (degree == "SOFTWARE") {
+			degree_choice = SOFTWARE;
+		}
+		else {
+			degree_choice = NETWORKING;
+		}
+
+
 		//add everything together
 		add(student_id, first_name, last_name, email, age, day1, day2, day3, degree_choice);
 	}
@@ -105,7 +104,7 @@ void Roster::add(std::string student_id, std::string first_name, std::string las
 }
 
 void Roster::printAll() {
-	for (int i = 0; i <= this->last_element_position; i++) (this->classRosterArray)[i]->print();
+	for (int i = 0; i <= this->last_element_position; i++) (this->classRosterArray[i])->print();
 }
 
 
