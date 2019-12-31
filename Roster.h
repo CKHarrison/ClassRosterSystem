@@ -23,7 +23,7 @@ public:
 	void printAll();
 	void printAverageDaysInCourse(std::string studentID);
 	void printInvalidEmails();
-	void printByDegreeProgram(int degreeProgram);
+	void printByDegreeProgram(Degree degreeProgram);
 	Student* getStudentAt(int index);
 
 	~Roster();

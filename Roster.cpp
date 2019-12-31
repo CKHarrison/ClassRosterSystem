@@ -72,7 +72,7 @@ void Roster::convert_and_add_data(std::string row) {
 			degree_choice = SOFTWARE;
 		}
 		else {
-			degree_choice = NETWORKING;
+			degree_choice = NETWORK;
 		}
 
 
@@ -169,10 +169,9 @@ void Roster::printInvalidEmails() {
 	}
 }
 
-void Roster::printByDegreeProgram(int degree) {
-	Degree degree_version = (Degree) degree;
+void Roster::printByDegreeProgram(Degree degree) {
 	for (int i = 0; i <= last_element_position; i++) {
-		if (this->classRosterArray[i]->get_degree_type() == degree_version) {
+		if (this->classRosterArray[i]->get_degree_type() == degree) {
 			this->classRosterArray[i]->print();
 		}
 	}
@@ -193,7 +192,12 @@ Roster::~Roster() {
 
 
 int main() {
+
+	std::string personal_information = "Course: C867 Scripting and Programming Applications, Created with C++ By Christopher Harrison \nStudent ID: 000900443";
+		
 	int numStudents = 5;
+
+	
 
 	const std::string studentData[] =
 	{ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -202,44 +206,55 @@ int main() {
 	"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
 	"A5,Chris,Harrison,char363@wgu.edu,29,10,20,30,SOFTWARE" };
 
+	std::cout << "**************************************************************************************************************" << std::endl;
+	std::cout << personal_information << std::endl;
+	std::cout << "**************************************************************************************************************" << std::endl;
+
+
 	Roster *classRoster = new Roster(numStudents);
-	std::cout << "Adding students" << std::endl;
+	/*std::cout << "Adding students" << std::endl;*/
 
 	for (int i = 0; i < numStudents; i++) {
 		classRoster->convert_and_add_data(studentData[i]);
 	}
 	//displaying students
 	std::cout << "\n";
-	std::cout << "Displaying all students" << std::endl;
+	std::cout << "====================================================================================================================" << std::endl;
+	std::cout << "Displaying all students:" << std::endl;
 	classRoster->printAll();
 
 	std::cout << "\n";
 
 	//printing invalid emails
-	std::cout << "Printing invalid emails" << std::endl;
-	std::cout << "\n";
+	std::cout << "====================================================================================================================" << std::endl;
+	std::cout << "Printing invalid emails:" << std::endl;	
 	classRoster->printInvalidEmails();
 
 	//average day to completion
 	std::cout << "\n";
-	std::cout << "Average days to completion per student" << std::endl;
+	std::cout << "====================================================================================================================" << std::endl;
+	std::cout << "Average days to completion per student:" << std::endl;
 	for (int i = 0; i < numStudents; i++) {
 		classRoster->printAverageDaysInCourse(classRoster->getStudentAt(i)->get_studentID());
 	}
 
 	std::cout << "\n";
+	std::cout << "====================================================================================================================" << std::endl;
 	//print students based on degree type
 	std::cout << "Students with the Software degree: " << std::endl;
-	classRoster->printByDegreeProgram(2);
-
+	classRoster->printByDegreeProgram((Degree) 2);
+	std::cout << "====================================================================================================================" << std::endl;
 
 	//removing student from roster
 	std::cout << "\n";
 	std::cout << "Removing Student with id A3 from roster" << std::endl;
 	classRoster->remove("A3");
 	classRoster->remove("A3");
+	std::cout << "====================================================================================================================" << std::endl;
 
+	classRoster->~Roster();
 	system("pause");
+	
 	return 0;
 
 
