@@ -20,7 +20,7 @@ Degree SecurityStudent::get_degree_type() {
 
 void SecurityStudent::print() {
 	this->Student::print();
-	std::cout << "Degree Program: Rabbits are here to stay fuckers" << std::endl;
+	std::cout << "Degree Program: SECURITY" << std::endl;
 }
 
 SecurityStudent::~SecurityStudent() {
