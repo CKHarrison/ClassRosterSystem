@@ -1,5 +1,5 @@
 # ClassRosterSystem
-C++ project for WGU Scripting and Programming Applications - Creating a simple class roster system based from a starting
+C++ project for WGU Scripting and Programming Applications - Created a class roster system based from a starting
 input string that separates students into three different categories. Software Student, Security Student, and Network 
 Student.
 Students are able to be deleted, and edited, and information about an individual student, a student group or the whole 
